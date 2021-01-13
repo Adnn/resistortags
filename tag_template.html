@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Resistor tags</title>
+    <meta name="author" content="Adnn">
+    <link rel="stylesheet" href="colors.css">
+    <link rel="stylesheet" href="design.css">
+</head>
+<body>
+    <div id="content">
+        {% for r in resistors %}
+        <div class="label">
+            <div class="back-side">
+                <div class="colorcolumn">
+                    <div class="color{{ r.decade }}"></div>
+                </div>
+                <span>{{ r.text }}</span>
+            </div>
+
+            <div class="front-side">
+                <div class="colorcolumn">
+                    <div class="color{{ r.decade }}"></div>
+                </div>
+
+                <div class="main-value">
+                    <span>{{ r.text }}</span>
+                </div>
+
+
+                <div class="notations">
+                  <!-- the print is totally borked, unless we give some value to height -->
+                  <svg version="1" baseProfile="full" width="90%" height="1mm" viewBox="0 0 380 165" xmlns="http://www.w3.org/2000/svg">
+
+                    <defs>
+                        <linearGradient id="band-1gradient">
+                            <stop offset="30%" stop-color="hsla(46, 65%, 52%, 1)" />
+                            <stop offset="45%" stop-color="#FFFFFF" />
+                            <stop offset="60%" stop-color="hsla(46, 65%, 52%, 1)" />
+                        </linearGradient>
+                        <linearGradient id="band-2gradient">
+                            <stop offset="30%" stop-color="hsla(0, 0%, 75%, 1)" />
+                            <stop offset="45%" stop-color="#FFFFFF" />
+                            <stop offset="60%" stop-color="hsla(0, 0%, 75%, 1)" />
+                        </linearGradient>
+                    </defs>
+                    <g transform="scale(1, 1)">
+                      <g transform="translate(20,20)">
+                        <rect x="-20" y="50" rx="3" ry="3" width="12" height="25" fill="grey" />
+                        <rect x="348" y="50" rx="3" ry="3" width="12" height="25" fill="grey" />
+                        <polygon points="0,0 0,125 55,125 90,110 250,110 285,125 340,125 340,0 285,0 250,15 90,15 55,0" stroke="black" stroke-width="8" fill="transparent" />
+                        <rect x="20" y="0" rx="5" ry="5" width="55" height="125" class="band{{ r.digits[0] }}" />
+                        <rect x="95" y="0" rx="5" ry="5" width="55" height="125" class="band{{ r.digits[1] }}" />
+                        <rect x="170" y="0" rx="5" ry="5" width="55" height="125" class="band{{ r.decade }}" />
+                      </g>
+                    </g>
+                  </svg>
+
+                  <div class="cms-text">
+                      {{ r.cms }}
+                  </div>
+                </div>
+
+                <div class="colorcolumn">
+                  <div class="color-2"></div>
+                  <div class="color-1"></div>
+                  <div class="color0"></div>
+                  <div class="color1"></div>
+                  <div class="color2"></div>
+                  <div class="color3"></div>
+                  <div class="color4"></div>
+                  <div class="color5"></div>
+                  <div class="color6"></div>
+                  <div class="color7"></div>
+                  <div class="color8"></div>
+                  <div class="color9"></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+@page {
+  size: A4;
+  /*size: 210mm 297mm;*/
+
+  /* Triggers a rounding error in Chrome, which then only prints 3 labels per line...
+  margin-left: 9.9mm;
+  margin-right: 10.1mm;
+  */
+  margin-left: 10mm;
+  margin-right: 10mm;
+
+  margin-top: 20.7mm;
+  margin-bottom: 21.9mm;
+  /* Tried to find some "magic number" by dichotomy, but I gave up about here
+     (there is probably no such value) */
+  /*margin-bottom: 21.96041mm;*/
+}
+
+
+html {
+  font-family: "Open Sans";
+  /* So Chrome prints background colors by default */
+  -webkit-print-color-adjust: exact;
+}
+
+/*
+* {
+  border: solid 1px;
+}
+*/
+
+body {
+    margin: 0px;
+}
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2.4mm;
+}
+
+.label {
+  width: 45.7mm;
+  height: 21.2mm;
+  display: flex;
+  flex-direction: column;
+  /* ATTENTION: not working, which is a major problem in relation to the fact
+                that the layout engine is very imprecise with its arithmetic.
+     NOTE: It seems to be a known limitation with flexbox
+           e.g.: https://stackoverflow.com/q/20408033/1027706 */
+  break-inside: avoid-page;
+
+  /*
+  background-color: silver;
+  border: solid 2px;
+  */
+}
+
+.back-side {
+  flex: 10;
+  display: flex;
+  justify-content: space-around;
+}
+
+.back-side > span {
+  flex: 1;
+  font-size: 4mm;
+  font-weight: bold;
+  text-align: center;
+  transform: rotate(0.5turn);
+  border-top: dashed 1px;
+  /*
+  border: solid 1px;
+  */
+}
+
+.back-side > .colorcolumn {
+}
+
+.front-side {
+  flex: 35;
+  display: flex;
+}
+
+.colorcolumn {
+  flex-basis: 3mm;
+  display: flex;
+  flex-direction: column;
+}
+
+.colorcolumn > div {
+  flex: 1;
+}
+
+.main-value {
+  flex: 90;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-weight: bold;
+  font-size: 8.2mm;
+  margin-left: 0.5mm;
+  margin-right: 0.5mm;
+  /*
+  background: yellow;
+  border: solid 2px;
+  */
+}
+
+.main-value > span {
+  /*
+  border: solid 1px;
+  */
+}
+
+.notations {
+  flex: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 0.5mm; /* Q: Why no margin collapsing? Because flexbox does not collapse*/
+  /*
+  background: orange;
+  border: solid 2px;
+  */
+}
+
+.notations * {
+  flex: 1;
+  /*
+  border: 1px solid;
+  */
+}
+
+.cms-text {
+  font-size: 5mm;
+}

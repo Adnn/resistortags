@@ -1,0 +1,101 @@
+.band0 {
+  fill: hsl(0, 0%, 0%, 1);
+}
+
+.band1 {
+  fill: hsla(30, 100%, 29%, 1);
+}
+
+.band2 {
+  fill: hsla(0, 100%, 50%, 1);
+}
+
+.band3 {
+  fill: hsla(30, 100%, 50%, 1);
+}
+
+.band4 {
+  fill: hsla(60, 100%, 50%, 1);
+}
+
+.band5 {
+  fill: hsla(120, 100%, 50%, 1);
+}
+
+.band6 {
+  fill: hsla(240, 100%, 50%, 1);
+}
+
+.band7 {
+  fill: hsla(274, 100%, 50%, 1);
+}
+
+.band8 {
+  fill: hsla(0, 0%, 50%, 1);
+}
+
+.band9 {
+  fill: hsla(0, 100%, 100%, 1);
+  stroke: grey;
+  stroke-width: 8;
+}
+
+.band-1 {
+  /*fill: hsla(46, 65%, 52%, 1);*/
+  fill: url(#band-1gradient);
+}
+
+.band-2 {
+  /*fill: hsla(0, 0%, 75%, 1);*/
+  fill: url(#band-2gradient);
+}
+
+.color0 {
+  background-color: hsl(0, 0%, 0%, 1);
+}
+
+.color1 {
+  background-color: hsla(30, 100%, 29%, 1);
+}
+
+.color2 {
+  background-color: hsla(0, 100%, 50%, 1);
+}
+
+.color3 {
+  background-color: hsla(30, 100%, 50%, 1);
+}
+
+.color4 {
+  background-color: hsla(60, 100%, 50%, 1);
+}
+
+.color5 {
+  background-color: hsla(120, 100%, 50%, 1);
+}
+
+.color6 {
+  background-color: hsla(240, 100%, 50%, 1);
+}
+
+.color7 {
+  background-color: hsla(274, 100%, 50%, 1);
+}
+
+.color8 {
+  background-color: hsla(0, 0%, 50%, 1);
+}
+
+.color9 {
+  background-color: hsla(0, 100%, 100%, 1);
+  border-left: solid 1px;
+  border-right: solid 1px;
+}
+
+.color-1 {
+  background: linear-gradient(to right, hsla(46, 65%, 52%, 1) 30%, #FFFFFF 45%, hsla(46, 65%, 52%, 1) 60%);
+}
+
+.color-2 {
+  background: linear-gradient(to right, hsla(0, 0%, 75%, 1) 40%, #FFFFFF 55%, hsla(0, 0%, 75%, 1) 70%);
+}

@@ -1,0 +1,29 @@
+@page {
+  /*size: A4;*/
+  size: 210mm 297mm;
+  margin-left: 10.0mm;
+  margin-right: 10.0mm;
+  margin-top: 20.7mm;
+  margin-bottom: 21.9mm;
+}
+
+
+html {
+  -webkit-print-color-adjust: exact;
+}
+
+body {
+    margin: 0px;
+}
+
+#content {
+  display: flex;
+  column-gap: 2.4mm;
+  flex-wrap: wrap;
+
+}
+
+.label {
+  width: 45.7mm;
+  height: 21.2mm;
+}
