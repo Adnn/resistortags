@@ -37,15 +37,32 @@ body {
     display: flex;
     flex-wrap: wrap;
     column-gap: 2.4mm;
+    /* See comment on .label height below */
+    row-gap: 0.218mm;
 }
 
 .label {
   width: 45.7mm;
-  height: 21.2mm;
+  /*height: 21.2mm;*/
+  /* ATTENTION: There is a rounding error with dimensions, leading to last row of labels not ending exactly at page break,
+                even when the arithmetic is otherwise exact.
+
+                Implemented workaround (hack) is to reduce the label height, and to increase the row-gap between lines
+                so that #gaps*gapsize < #rows*reduction < #rows*gapsize.
+                (here, reduction is 0.2mm, and gap is 0.218 -> 11*0.218(2.398) < 12*0.2(2.4) < 12*0.218(2.616)
+                This way, the last row will end a bit before the page height (it fits entirely),
+                yet if another row was added to this same page, the gap before it would already go past the page,
+                thus triggering a page break before the start of next row (apparently cancelling the gap and starting the next row on the next page).
+
+                Note that an indesirable side effect is that successive rows of tags will not end up exactly at the same height on the line of labels on the paper
+                (small offset, the difference between row-gap and reduction. ~0.02mm in this setup)
+   */
+  height: 21.0mm;
   display: flex;
   flex-direction: column;
   /* ATTENTION: not working, which is a major problem in relation to the fact
                 that the layout engine is very imprecise with its arithmetic.
+                see: "attention" regarding .label height above
      NOTE: It seems to be a known limitation with flexbox
            e.g.: https://stackoverflow.com/q/20408033/1027706 */
   break-inside: avoid-page;
